@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+
+# Data: do not commit raw or processed large files
+data/raw/*
+data/processed/*
+
+# Keep directory placeholders
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Kaggle credentials
+kaggle.json
+**/kaggle.json
