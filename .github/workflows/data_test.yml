@@ -1,0 +1,20 @@
+name: Data Pipeline Test
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+            - name: Install dependencies
+              run: pip install pytest polars duckdb
+            - name: Run pipeline tests
+              # this test would run against a small dummy dataset in the repo
+              run: pytest tests/
