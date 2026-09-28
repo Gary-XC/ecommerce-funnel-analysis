@@ -91,7 +91,7 @@ with col_chart:
 
 with col_data:
     st.subheader("Brand Breakdown")
-    st.markdown("Top brands by purchase volume.")
+    st.markdown("Top 10 brands by purchase volume.")
 
     # Granular table for deep-dives
     table_data = (
