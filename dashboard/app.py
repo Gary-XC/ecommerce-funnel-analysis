@@ -4,7 +4,7 @@ import streamlit as st
 import polars as pl
 import plotly.graph_objects as go
 
-# 1. Page Configuration (Wide layout for executive dashboards)
+# 1. Page Configuration
 st.set_page_config(page_title="eCommerce Funnel Analysis", layout="wide")
 
 
@@ -20,7 +20,7 @@ def load_data():
 
 df = load_data()
 
-# 3. Sidebar: Non-Technical Stakeholder Controls
+# 3. Sidebar
 st.sidebar.header("Filter Options")
 st.sidebar.write("Drill down to identify specific bottlenecks.")
 
@@ -44,7 +44,7 @@ selected_brand = st.sidebar.selectbox("Select Brand", ["All"] + brand_list)
 if selected_brand != "All":
     df_filtered = df_filtered.filter(pl.col("brand") == selected_brand)
 
-# 4. Top Row: BANs (Big-Ass Numbers)
+# 4. Top Row: BANs
 st.title("eCommerce Conversion Funnel")
 st.markdown("Identifying user drop-off points to optimize checkout workflows.")
 
@@ -86,7 +86,7 @@ with col_chart:
             },  # Red at the bottom draws attention to the bottleneck
         )
     )
-    fig.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+    fig.update_layout(height=400, margin=dict(l=20, r=20, t=20, b=20))
     st.plotly_chart(fig, use_container_width=True)
 
 with col_data:
