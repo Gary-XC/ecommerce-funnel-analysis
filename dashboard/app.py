@@ -98,7 +98,7 @@ with col_data:
         df_filtered.select(["brand", "unique_purchases", "overall_conversion_rate"])
         .sort("unique_purchases", descending=True)
         .head(10)
-        .to_pandas()  # Streamlit handles Pandas slightly better for native dataframe rendering
+        .to_pandas()
     )
 
     # Format the conversion rate for better readability
@@ -108,4 +108,4 @@ with col_data:
         str
     ) + "%"  # type: ignore
 
-    st.dataframe(table_data, use_container_width=True, hide_index=True)
+    st.dataframe(table_data, use_container_width=True, hide_index=True, height=400)
