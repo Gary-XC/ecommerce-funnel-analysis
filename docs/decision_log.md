@@ -66,3 +66,47 @@ Alternative considered: Power BI, Tableau.
 
 Future option: Aggregated CSV outputs can also be connected to Power BI or Tableau
 if a BI-tool-specific deliverable is desired.
+
+## 2026-09-29: Use dual conversion metrics after diagnosing non-strict purchases
+
+Decision: The project will report both:
+
+1. Strict funnel conversion:
+   Sessions with view -> cart after view -> purchase after cart
+   divided by
+   Sessions with view.
+
+2. Inclusive business conversion:
+   Sessions with view and any purchase
+   divided by
+   Sessions with view.
+
+Reason: Diagnostics showed 470,443 non-strict purchase sessions, including 458,636 viewed purchases without an observed cart-after-view event. Treating all purchases as strict funnel conversions would understate commercial conversion. Treating all purchases as funnel completions would obscure the intended product journey.
+
+Business implication: Strict funnel analysis is used for diagnosis. Inclusive conversion is used for revenue impact and executive reporting.
+
+---
+
+## 2026-09-29: Remove-from-cart hypothesis is not testable in this extract
+
+Decision: H3, which proposed analyzing cart removals as a friction signal, will be marked not testable for this dataset version.
+
+Reason: The cleaned event table contains zero `remove_from_cart` events. The pipeline explicitly allows that event type, so the absence is a dataset property, not a filtering bug.
+
+Business implication: The project will focus on view-to-cart leakage, cart-to-purchase leakage, direct/non-strict purchase paths, category performance, price bands, and metadata completeness.
+
+---
+
+## 2026-09-29: Treat direct/non-strict purchases as a first-class analytical segment
+
+Decision: Purchase path segmentation will be included in the EDA and dashboard.
+
+Reason: Non-strict purchases represent a material share of converted sessions. Ignoring them would create an incomplete revenue picture.
+
+Business implication: The analysis will distinguish:
+- strict view -> cart -> purchase conversions
+- viewed purchases without observed cart
+- purchases before observed cart
+- non-viewed purchases
+
+This supports product and data-tracking recommendations, not only UX recommendations.

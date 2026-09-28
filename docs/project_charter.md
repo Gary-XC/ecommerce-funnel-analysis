@@ -17,6 +17,14 @@ Among user sessions that contain at least one product view, which funnel stage h
 - Do repeated product views predict purchase?
 - How much incremental revenue could be recovered from a small conversion improvement?
 
+## Hypotheses 
+- id: H3
+    statement: 
+        Cart removals are associated with lower purchase conversion.
+    status: not_testable_in_this_extract
+    reason: 
+        The cleaned dataset contains zero remove_from_cart events.
+
 ## North Star Metric
 
 **Session Purchase Conversion Rate**
@@ -68,3 +76,8 @@ Price is a product price proxy, not necessarily final paid amount.
 Quantity is not available.
 Only two months of behavior are observed.
 User and session IDs are anonymized.
+
+- `remove_from_cart` events are not present in this dataset extract, so cart-removal friction cannot be analyzed here.
+- A material share of purchases occurs outside the strict view -> cart -> purchase path, likely representing direct purchase behavior, express checkout, or event-tracking gaps.
+- The dataset does not document currency, so revenue figures are treated as monetary-unit proxies.
+- The dataset does not include quantity, so purchase revenue is approximated by summing purchase event prices.
