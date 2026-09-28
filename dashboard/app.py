@@ -86,8 +86,8 @@ with col_chart:
             },  # Red at the bottom draws attention to the bottleneck
         )
     )
-    fig.update_layout(height=400, margin=dict(l=20, r=20, t=20, b=20))
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_layout(height=400, width=700, margin=dict(l=20, r=20, t=20, b=20))
+    st.plotly_chart(fig, use_container_width=False)
 
 with col_data:
     st.subheader("Brand Breakdown")
