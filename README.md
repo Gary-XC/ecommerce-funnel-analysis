@@ -1,10 +1,10 @@
 # eCommerce Conversion Funnel Analysis
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://funnel-analysis-ecommerce.streamlit.app/)
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![Python 3.11](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 
-## Executive Summary
-This project analyzes a massive eCommerce dataset to identify critical bottlenecks in the user purchasing journey. By processing millions of event records, I discovered that the most significant revenue leak occurs at the "Added to Cart" stage. I engineered an automated data pipeline to aggregate this data and deployed an interactive dashboard that allows stakeholders to drill down into cart abandonment rates by product category and brand. 
+## Summary
+This project analyzes a massive eCommerce dataset to identify critical bottlenecks in the user purchasing journey. By processing millions of event records, I discovered that the most significant revenue leak occurs at the "Added to Cart" stage. I engineered an automated data pipeline to aggregate this data and deployed an interactive dashboard that allows users to sort cart abandonment rates by product category and brand. 
 
 **Live Dashboard:** [View Interactive App Here](https://funnel-analysis-ecommerce.streamlit.app/)
 
@@ -26,3 +26,4 @@ To move beyond basic Jupyter Notebooks, I engineered a production-style workflow
 * **Observational Data:** This dataset represents observational user behavior. While we can see *where* users drop off, we cannot definitively prove *why* without controlled A/B testing.
 * **Data Imputation:** Users utilizing 1-click checkouts generated `purchase` events without preceding `cart` events. I programmatically inferred cart events for these users to maintain logical funnel integrity, which assumes all purchases represent an intent to cart.
 * **Session Breakage:** Cross-device tracking (e.g., viewing on mobile, purchasing on desktop) is a known limitation in event logging that may slightly under report overall conversion rates.
+* [Dataset Source](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)
